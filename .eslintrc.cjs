@@ -16,6 +16,7 @@ module.exports = {
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
     'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/space-before-function-paren': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
