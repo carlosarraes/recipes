@@ -47,3 +47,16 @@ export const fetchWithSmartSearch = async (type: string, query: string) => {
 
   return data
 }
+
+export const fetchById = async (type: string, id: string) => {
+  const site = type === 'meals' ? 'themealdb' : 'thecocktaildb'
+  const url = `https://www.${site}.com/api/json/v1/1/lookup.php?i=${id}`
+
+  try {
+    const response = await fetch(url)
+    const data = await response.json()
+    return data
+  } catch (error) {
+    throw new Error('Error fetching data')
+  }
+}
