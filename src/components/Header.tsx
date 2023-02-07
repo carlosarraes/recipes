@@ -23,8 +23,12 @@ const Header = ({ type }: HeaderProps) => {
           <p className="font-bold text-md text-red-500">{name}</p>
         </Link>
       </div>
-      <Nav search={search} setSearch={setSearch} />
-      {search && <SearchBar type={type} />}
+      {!(type === 'noSearch') && (
+        <>
+          <Nav search={search} setSearch={setSearch} />
+          {search && <SearchBar type={type} />}
+        </>
+      )}
     </header>
   )
 }

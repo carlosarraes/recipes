@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className="fixed bottom-0 p-2 bg-secondary w-full flex justify-evenly">
+    <footer className="fixed bottom-0 p-2 bg-secondary flex justify-evenly w-[340px]">
       <Link to="/meals">
         <div className="tooltip" data-tip="Comidas">
           <GiHotMeal className="text-3xl text-white" />
