@@ -11,7 +11,7 @@ interface HomeProps {
 
 const Home = ({ type }: HomeProps) => {
   return (
-    <main>
+    <main className="relative w-full">
       <Header type={type} />
       <ToastContainer />
       <CategoryButtons type={type} />
