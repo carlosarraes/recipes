@@ -34,7 +34,6 @@ const Profile = () => {
     navigate('/')
   }
 
-  console.log(data)
   return (
     <section>
       <Header type="noSearch" />

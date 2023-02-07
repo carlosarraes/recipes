@@ -74,7 +74,6 @@ const RecipeDetails = () => {
     const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes') ?? '[]')
     const found = inProgressRecipes.find((recipe: Recipe) => {
       const idLookup = recipe.idMeal ?? recipe.idDrink
-      console.log(idLookup, id)
       return idLookup === id
     })
     if (found != null) setStarted(true)
@@ -137,7 +136,7 @@ const RecipeDetails = () => {
   }
 
   const handleGoBack = () => {
-    navigate('/')
+    navigate(`/${type}`)
   }
 
   return (

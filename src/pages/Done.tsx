@@ -32,7 +32,6 @@ const Done = () => {
     }
   }
 
-  console.log(done)
   return (
     <section>
       <Header type="noSearch" />
@@ -42,6 +41,7 @@ const Done = () => {
         {filter.map((recipe: Recipe, index: number) => (
           <Card key={index} recipe={recipe} handleCopy={handleCopy} />
         ))}
+        {filter.length === 0 && <p className="text-xl mt-4">Nenhuma receita concluída</p>}
       </div>
       <ToastContainer />
     </section>

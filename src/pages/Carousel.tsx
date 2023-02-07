@@ -3,7 +3,6 @@ interface CarouselProps {
 }
 
 const Carousel = ({ ingredients }: CarouselProps) => {
-  console.log(ingredients)
   return (
     <div className="carousel rounded-box mt-4">
       {ingredients?.map((ingredient) => (

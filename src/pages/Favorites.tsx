@@ -58,6 +58,7 @@ const Favorites = () => {
             favorite
           />
         ))}
+        {filter.length === 0 && <p className="text-xl mt-4">Não há receitas favoritas</p>}
       </div>
       <ToastContainer />
     </section>
