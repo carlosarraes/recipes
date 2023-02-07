@@ -27,7 +27,7 @@ const SearchBar = ({ type }: SearchBarProps) => {
     }
     if (data.length === 1) {
       const { idMeal, idDrink }: IDs = data[0]
-      navigate(`/${type}/${idMeal ?? idDrink}`)
+      navigate(`/${type}/${idMeal ?? (idDrink as string)}`)
     }
     setRecipeContext(data)
   }
