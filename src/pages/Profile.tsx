@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Header from '../components/Header'
 import NavOpts from '../components/NavOpts'
 import UserContext from '../context/UserContext'
@@ -9,6 +9,7 @@ const Profile = () => {
     preparando: 0,
     feitas: 0,
     favoritas: 0,
+    link: '',
   })
 
   const navigate = useNavigate()
@@ -22,10 +23,13 @@ const Profile = () => {
     const doneRecipes = JSON.parse(localStorage.getItem('finishedRecipes') ?? '[]')
     const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes') ?? '{}')
     const favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes') ?? '[]')
+    const { type, idMeal, idDrink } = inProgressRecipes[0]
+    const id = idMeal ?? idDrink
     setData({
       preparando: Object.keys(inProgressRecipes).length,
       feitas: doneRecipes.length,
       favoritas: favoriteRecipes.length,
+      link: `/${type as string}/${id as string}/in-progress`,
     })
   }, [])
 
@@ -49,8 +53,10 @@ const Profile = () => {
         <h2>Informações do usuário:</h2>
         <div className="stats shadow-2xl scale-75">
           <div className="stat place-items-center">
-            <div className="stat-title">Preparando</div>
-            <div className="stat-value">{data.preparando}</div>
+            <Link to={data.link} className="text-center">
+              <div className="stat-title">Preparando</div>
+              <div className="stat-value">{data.preparando}</div>
+            </Link>
           </div>
           <div className="stat place-items-center">
             <div className="stat-title">Favoritos</div>

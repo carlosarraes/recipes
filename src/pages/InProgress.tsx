@@ -37,6 +37,12 @@ const InProgress = () => {
   }, [controls, finished])
 
   useEffect(() => {
+    const localControl = JSON.parse(localStorage.getItem('localCheckbox') ?? '{}')
+    const found = localControl?.[id]
+    if (found != null) setControls(found)
+  }, [])
+
+  useEffect(() => {
     const favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes') ?? '[]')
     const found = favoriteRecipes.find((recipe: Recipe) => {
       const idLookup = recipe.idMeal ?? recipe.idDrink
@@ -100,7 +106,7 @@ const InProgress = () => {
   }
 
   const handleCopy = () => {
-    copy(`http://localhost:3000/${type}/${id}`).catch((err) => console.log(err))
+    copy(`https://hubrecipe.netlify.app/${type}/${id}`).catch((err) => console.log(err))
     toast.success('Link copiado com sucesso!')
   }
 
@@ -157,7 +163,7 @@ const InProgress = () => {
                 <input
                   type="checkbox"
                   className="mr-2 checkbox checkbox-accent checkbox-sm"
-                  value={String(controls[index])}
+                  checked={controls[index]}
                   onChange={(e) => handleChange(e, index)}
                 />
                 <p
@@ -175,17 +181,7 @@ const InProgress = () => {
                   {showRecipe.measure[index]}
                 </p>
               </li>
-            ) : (
-              <li key={index} className="flex flex-row">
-                <input
-                  type="checkbox"
-                  className="mr-2 checkbox checkbox-accent checkbox-sm"
-                  value={String(controls[index])}
-                  onChange={(e) => handleChange(e, index)}
-                />
-                <p className="text-slate-800 text-sm">{ingredient}</p>
-              </li>
-            )
+            ) : null
           })}
         </ul>
       </div>

@@ -131,7 +131,7 @@ const RecipeDetails = () => {
   }
 
   const handleCopy = () => {
-    copy(`http://localhost:3000/${type}/${id}`).catch((err) => console.log(err))
+    copy(`https://hubrecipe.netlify.app/${type}/${id}`).catch((err) => console.log(err))
     toast.success('Link copiado com sucesso!')
   }
 

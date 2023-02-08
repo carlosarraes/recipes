@@ -13,7 +13,7 @@ const Card = ({ recipe, handleCopy, handleUnfavorite, favorite }: CardProps) => 
   const handleLift = () => {
     const { idMeal, idDrink, type } = recipe
     const id = idMeal ?? idDrink
-    handleCopy(`/${type as string}/${id as string}`)
+    handleCopy(`https://hubrecipe.netlify.app/${type as string}/${id as string}`)
   }
 
   return (
