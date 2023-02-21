@@ -21,4 +21,4 @@ Bem-vindo ao aplicativo de receitas! Este projeto foi desenvolvido para ajudá-l
 
 ## Cobertura de Testes
 
-- Desenvolvendo
+- Jest/RTL
